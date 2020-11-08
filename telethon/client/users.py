@@ -73,8 +73,7 @@ class UserMethods:
                         request_index += 1
                     if any(x is not None for x in exceptions):
                         raise MultiError(exceptions, results, requests)
-                    else:
-                        return results
+                    return results
                 else:
                     result = await future
                     self.session.process_entities(result)
@@ -541,7 +540,7 @@ class UserMethods:
                         'Cannot get entity from a channel (or group) '
                         'that you are not part of. Join the group and retry'
                     )
-                elif isinstance(invite, types.ChatInviteAlready):
+                if isinstance(invite, types.ChatInviteAlready):
                     return invite.chat
             elif username:
                 try:

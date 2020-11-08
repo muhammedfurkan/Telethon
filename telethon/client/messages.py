@@ -905,7 +905,7 @@ class MessageMethods:
                     return from_peer_id
 
                 raise ValueError('from_peer must be given if integer IDs are used')
-            elif isinstance(m, types.Message):
+            if isinstance(m, types.Message):
                 return m.chat_id
             else:
                 raise TypeError('Cannot forward messages of type {}'.format(type(m)))

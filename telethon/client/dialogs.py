@@ -382,7 +382,7 @@ class DialogMethods:
 
         if folder is None:
             raise ValueError('You must specify a folder')
-        elif not utils.is_list_like(folder):
+        if not utils.is_list_like(folder):
             folder = [folder] * len(entities)
         elif len(entities) != len(folder):
             raise ValueError('Number of folders does not match number of entities')

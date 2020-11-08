@@ -87,9 +87,9 @@ class ButtonMethods:
 
         if inline_only and is_normal:
             raise ValueError('You cannot use non-inline buttons here')
-        elif is_inline == is_normal and is_normal:
+        if is_inline == is_normal and is_normal:
             raise ValueError('You cannot mix inline with normal buttons')
-        elif is_inline:
+        if is_inline:
             return types.ReplyInlineMarkup(rows)
         # elif is_normal:
         return types.ReplyKeyboardMarkup(

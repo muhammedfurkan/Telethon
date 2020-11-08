@@ -72,8 +72,7 @@ class _DirectDownloadIter(RequestIter):
             result = await self.client._call(self._sender, self.request)
             if isinstance(result, types.upload.FileCdnRedirect):
                 raise NotImplementedError  # TODO Implement
-            else:
-                return result.bytes
+            return result.bytes
 
         except errors.FileMigrateError as e:
             self.client._log[__name__].info('File lives in another DC')

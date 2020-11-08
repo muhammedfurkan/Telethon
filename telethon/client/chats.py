@@ -787,8 +787,7 @@ class ChatMethods:
             # 0x20b2cc21 = crc32(b'SendMessageAction')
             if isinstance(action, type):
                 raise ValueError('You must pass an instance, not the class')
-            else:
-                raise ValueError('Cannot use {} as action'.format(action))
+            raise ValueError('Cannot use {} as action'.format(action))
 
         if isinstance(action, types.SendMessageCancelAction):
             # ``SetTypingRequest.resolve`` will get input peer of ``entity``.
